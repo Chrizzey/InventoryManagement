@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="InventoryManagement.Articles.Article">
+    <Position X="13" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAQAgAAAAAAAAAAAAAAAAAAAAAAAAgEABAAA=</HashCode>
+      <FileName>Articles\Article.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="InventoryManagement.Articles.Hat">
+    <Position X="18.75" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAABAAAAAAAAAA=</HashCode>
+      <FileName>Articles\Hat.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="InventoryManagement.Articles.MenShoe">
+    <Position X="14.25" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Articles\MenShoe.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="InventoryManagement.Articles.MenShirt">
+    <Position X="9.75" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Articles\MensShirts.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="InventoryManagement.Articles.Shirt">
+    <Position X="10.75" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Articles\Shirt.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="InventoryManagement.Articles.Shoe">
+    <Position X="15.25" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Articles\Shoe.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="InventoryManagement.Articles.Socks">
+    <Position X="7.5" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAgAAAAAQAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Articles\Socks.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="InventoryManagement.Articles.WomenShirt">
+    <Position X="12" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Articles\WomenShirt.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="InventoryManagement.Articles.WomenShoe">
+    <Position X="16.5" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Articles\WomenShoe.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
