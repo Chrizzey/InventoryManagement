@@ -1,4 +1,4 @@
-﻿namespace InventoryManagement.Models;
+﻿namespace InventoryManagement.Contracts;
 
 public enum StandardSize
 {

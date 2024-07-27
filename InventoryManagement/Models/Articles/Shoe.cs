@@ -1,4 +1,4 @@
-﻿namespace InventoryManagement.Articles;
+﻿namespace InventoryManagement.Models.Articles;
 
 /// <summary>
 /// Represents a generalized shoe as an inventory item

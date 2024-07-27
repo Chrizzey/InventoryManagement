@@ -1,6 +1,6 @@
-﻿using InventoryManagement.Models;
+﻿using InventoryManagement.Contracts;
 
-namespace InventoryManagement.Articles;
+namespace InventoryManagement.Models.Articles;
 
 /// <summary>
 /// Represents a shirt made for men
