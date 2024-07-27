@@ -48,4 +48,13 @@ public abstract class Article
         Brand = string.Empty;
         Price = decimal.MaxValue;
     }
+
+    /// <summary>
+    /// Creates a duplicate of the current object
+    /// </summary>
+    /// <returns>A copy of the current article object</returns>
+    public Article Clone()
+    {
+        return (Article)MemberwiseClone();
+    }
 }

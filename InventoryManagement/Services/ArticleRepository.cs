@@ -43,13 +43,19 @@ namespace InventoryManagement.Services
         public Article GetArticle(int id)
         {
             ThrowIfIdDoesNotExist(id);
-            return _articles[id];
+            return _articles[id].Clone();
         }
 
         /// <inheritdoc />
         public IEnumerable<Article> GetAllArticles()
         {
-            return new ReadOnlyCollection<Article>(_articles.Values.ToList());
+            var articles = new List<Article>();
+            foreach (var article in _articles.Values)
+            {
+                articles.Add(article.Clone());
+            }
+
+            return new ReadOnlyCollection<Article>(articles);
         }
 
         /// <inheritdoc />
@@ -58,13 +64,12 @@ namespace InventoryManagement.Services
         /// </exception>
         public void DeleteArticle(Article article)
         {
-            ThrowIfIdDoesNotExist(article.Id);
-            _articles.Remove(article.Id);
+            DeleteArticle(article.Id);
         }
 
         /// <inheritdoc />
         /// <exception cref="ArticleNotFoundException">No article matches the given <param name="id"></param></exception>
-        public void DeleteArticles(int id)
+        public void DeleteArticle(int id)
         {
             ThrowIfIdDoesNotExist(id);
             _articles.Remove(id);

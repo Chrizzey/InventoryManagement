@@ -42,5 +42,5 @@ public interface IArticleRepository
     /// Removes an article from the repository based on its <param name="id"></param>
     /// </summary>
     /// <param name="id">The unique number of the article, see <see cref="Article.Id"/></param>
-    void DeleteArticles(int id);
+    void DeleteArticle(int id);
 }
