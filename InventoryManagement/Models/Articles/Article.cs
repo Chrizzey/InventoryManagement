@@ -11,6 +11,11 @@ public abstract class Article
     public int Id { get; set; }
 
     /// <summary>
+    /// Gets or sets the name of the article
+    /// </summary>
+    public string Name { get; set; }
+
+    /// <summary>
     /// Gets or sets the non-discounted price of the item
     /// </summary>
     public decimal Price { get; set; }
