@@ -74,6 +74,12 @@ namespace InventoryManagement.Services
             ThrowIfIdDoesNotExist(id);
             _articles.Remove(id);
         }
+        
+        /// <inheritdoc />
+        public bool DoesIdExist(int id)
+        {
+            return _articles.ContainsKey(id);
+        }
 
         private void ThrowIfIdDoesNotExist(int id)
         {

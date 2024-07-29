@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using InventoryManagement.Contracts;
+﻿using InventoryManagement.Contracts;
+using InventoryManagement.Services.Shell;
 
 namespace InventoryManagement
 {
@@ -18,9 +14,13 @@ namespace InventoryManagement
 
         public void Start()
         {
+            var userInputProcessor = new ShellUserInputProcessor(_articleRepository);
+            var shellMenu = new ShellMenu(userInputProcessor);
 
+            while (true)
+            {
+                shellMenu.Show();
+            }
         }
-
-        
     }
 }
