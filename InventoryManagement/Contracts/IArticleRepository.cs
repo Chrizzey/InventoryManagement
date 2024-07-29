@@ -43,4 +43,11 @@ public interface IArticleRepository
     /// </summary>
     /// <param name="id">The unique number of the article, see <see cref="Article.Id"/></param>
     void DeleteArticle(int id);
+
+    /// <summary>
+    /// Checks, if a given <param name="id"></param> exists in the repository
+    /// </summary>
+    /// <param name="id">The id to check</param>
+    /// <returns>True if any article has the ID, otherwise false</returns>
+    bool DoesIdExist(int id);
 }

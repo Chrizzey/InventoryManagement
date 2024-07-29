@@ -8,7 +8,7 @@
     </TypeIdentifier>
   </Class>
   <Class Name="InventoryManagement.Models.Articles.Hat">
-    <Position X="17.25" Y="4" Width="1.5" />
+    <Position X="17.25" Y="4.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAABAAAAAAAAAA=</HashCode>
       <FileName>Models\Articles\Hat.cs</FileName>
@@ -22,35 +22,35 @@
     </TypeIdentifier>
   </Class>
   <Class Name="InventoryManagement.Models.Articles.MenShirt">
-    <Position X="19.5" Y="6.5" Width="1.5" />
+    <Position X="19.5" Y="6.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Models\Articles\MensShirts.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="InventoryManagement.Models.Articles.Shirt">
-    <Position X="20.5" Y="4" Width="1.5" />
+    <Position X="20.5" Y="4.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>ABAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Models\Articles\Shirt.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="InventoryManagement.Models.Articles.Shoe">
-    <Position X="25" Y="4" Width="1.5" />
+    <Position X="25" Y="4.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Models\Articles\Shoe.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="InventoryManagement.Models.Articles.Socks">
-    <Position X="15" Y="4" Width="1.5" />
+    <Position X="15" Y="4.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAgAAAAAQAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Models\Articles\Socks.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="InventoryManagement.Models.Articles.WomenShirt">
-    <Position X="21.75" Y="6.5" Width="1.5" />
+    <Position X="21.75" Y="6.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AEAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Models\Articles\WomenShirt.cs</FileName>

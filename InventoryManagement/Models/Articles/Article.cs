@@ -52,6 +52,7 @@ public abstract class Article
         Color = string.Empty;
         Brand = string.Empty;
         Price = decimal.MaxValue;
+        Name = string.Empty;
     }
 
     /// <summary>
