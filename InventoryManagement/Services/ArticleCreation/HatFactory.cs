@@ -11,7 +11,7 @@ public class HatFactory : ArticleFactory
     {
     }
 
-    public Hat CreateHat(int id)
+    public override Article Create(int id)
     {
         var article = new Hat(id);
         Console.WriteLine("Please enter the following attributes: ");

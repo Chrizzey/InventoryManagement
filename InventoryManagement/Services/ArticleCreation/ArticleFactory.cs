@@ -1,4 +1,5 @@
-﻿using InventoryManagement.Services.Shell;
+﻿using InventoryManagement.Models.Articles;
+using InventoryManagement.Services.Shell;
 
 namespace InventoryManagement.Services.ArticleCreation;
 
@@ -10,6 +11,8 @@ public abstract class ArticleFactory
     {
         InputProvider = inputProvider;
     }
+
+    public abstract Article Create(int id);
 
     protected string ReadBrand()
     {

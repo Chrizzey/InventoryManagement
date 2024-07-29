@@ -10,7 +10,7 @@ public class SockFactory : ArticleFactory
     {
     }
 
-    public Socks CreateSocks(int id)
+    public override Article Create(int id)
     {
         var article = new Socks(id);
         Console.WriteLine("Please enter the following attributes: ");

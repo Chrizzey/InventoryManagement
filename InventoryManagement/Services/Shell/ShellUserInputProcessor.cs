@@ -8,12 +8,12 @@ namespace InventoryManagement.Services.Shell;
 public class ShellUserInputProcessor : IUserInputProcessor
 {
     private readonly IArticleRepository _articleRepository;
-    private readonly ArticleFactoryFacade _articleFactoryFacade;
+    private readonly ShellInputProvider _inputProvider;
 
     public ShellUserInputProcessor(IArticleRepository articleRepository)
     {
         _articleRepository = articleRepository;
-        _articleFactoryFacade = new ArticleFactoryFacade(articleRepository);
+        _inputProvider = new ShellInputProvider();
     }
 
     public void ListAllArticles()
@@ -52,26 +52,45 @@ public class ShellUserInputProcessor : IUserInputProcessor
 
     private Article CreateNewArticle(int choice)
     {
+        var factory = GetArticleFactory(choice);
+        var id = ReadArticleId();
+        return factory.Create(id);
+    }
+
+    private ArticleFactory GetArticleFactory(int choice)
+    {
         switch (choice)
         {
             case 1:
-                return _articleFactoryFacade.CreateSocks();
+                return new SockFactory(_inputProvider);
             case 2:
-                return _articleFactoryFacade.CreateHat();
+                return new HatFactory(_inputProvider);
             case 3:
-                return _articleFactoryFacade.CreateMenShirt();
+                return new MenShirtFactory(_inputProvider);
             case 4:
-                return _articleFactoryFacade.CreateWomenShirt();
+                return new WomenShirtFactory(_inputProvider);
             case 5:
-                return _articleFactoryFacade.CreateMenShoe();
+                return new MenShoeFactory(_inputProvider);
             case 6:
-                return _articleFactoryFacade.CreateWomenShoe();
-
+                return new WomenShoeFactory(_inputProvider);
             default:
                 throw new NotSupportedException();
         }
     }
-    
+
+    private int ReadArticleId()
+    {
+        string input;
+        int number;
+        do
+        {
+            Console.Write("Enter article number:");
+            input = Console.ReadLine();
+
+        } while (!int.TryParse(input, out number) || _articleRepository.DoesIdExist(number));
+        return number;
+    }
+
     public void UpdateArticle(Article article)
     {
         ShowArticleDetails(article);
