@@ -12,19 +12,17 @@ public class SockFactory : ArticleFactory
 
     public override Article Create(int id)
     {
-        var article = new Socks(id);
+        var socks = new Socks(id);
         Console.WriteLine("Please enter the following attributes: ");
 
-        article.Name = ReadName();
-        article.Brand = ReadBrand();
-        article.Color = ReadColor();
-        article.Size = ReadSockSize();
-        article.Price = ReadPrice();
-        article.NumberOfPairs = ReadNumberOfPairs();
-        article.Description = ReadDescription();
-        article.ItemsInStock = ReadItemsInStock();
+        ReadArticleProperties(socks);
+        
+        socks.Size = ReadSockSize();
+        socks.NumberOfPairs = ReadNumberOfPairs();
 
-        return article;
+        ReadInventoryProperties(socks);
+
+        return socks;
     }
 
     private int ReadNumberOfPairs()

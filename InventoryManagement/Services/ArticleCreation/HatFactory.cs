@@ -13,19 +13,17 @@ public class HatFactory : ArticleFactory
 
     public override Article Create(int id)
     {
-        var article = new Hat(id);
+        var hat = new Hat(id);
         Console.WriteLine("Please enter the following attributes: ");
+        
+        ReadArticleProperties(hat);
+        
+        hat.Size = ReadHatSize();
+        hat.Style = ReadStyle();
 
-        article.Name = ReadName();
-        article.Brand = ReadBrand();
-        article.Color = ReadColor();
-        article.Size = ReadHatSize();
-        article.Price = ReadPrice();
-        article.Style = ReadStyle();
-        article.Description = ReadDescription();
-        article.ItemsInStock = ReadItemsInStock();
+        ReadInventoryProperties(hat);
 
-        return article;
+        return hat;
     }
 
     private StandardSize ReadHatSize()

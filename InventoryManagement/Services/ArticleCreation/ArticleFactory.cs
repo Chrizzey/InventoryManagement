@@ -43,4 +43,18 @@ public abstract class ArticleFactory
     {
         return InputProvider.ReadString("Description: ");
     }
+
+    protected void ReadArticleProperties(Article article)
+    {
+        article.Name = ReadName();
+        article.Brand = ReadBrand();
+        article.Color = ReadColor();
+        article.Price = ReadPrice();
+    }
+
+    protected void ReadInventoryProperties(Article article)
+    {
+        article.Description = ReadDescription();
+        article.ItemsInStock = ReadItemsInStock();
+    }
 }

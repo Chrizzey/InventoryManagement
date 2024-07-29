@@ -1,9 +1,10 @@
-﻿using InventoryManagement.Models.Articles;
+﻿using InventoryManagement.Contracts;
+using InventoryManagement.Models.Articles;
 using InventoryManagement.Services.Shell;
 
 namespace InventoryManagement.Services.ArticleCreation;
 
-public class MenShirtFactory : ArticleFactory
+public class MenShirtFactory : ShirtFactory
 {
     public MenShirtFactory(ShellInputProvider inputProvider) 
         : base(inputProvider)
@@ -12,6 +13,21 @@ public class MenShirtFactory : ArticleFactory
 
     public override Article Create(int id)
     {
-        throw new NotImplementedException();
+        var shirt = new MenShirt(id);
+        Console.WriteLine("Please enter the following attributes: ");
+
+        ReadArticleProperties(shirt);
+        ReadShirtProperties(shirt);
+
+        shirt.ShirtSize = ReadShirtSize();
+
+        ReadInventoryProperties(shirt);
+
+        return shirt;
+    }
+
+    private StandardSize ReadShirtSize()
+    {
+        return InputProvider.ReadStandardSize("Size: ");
     }
 }

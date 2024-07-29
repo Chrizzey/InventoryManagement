@@ -3,7 +3,7 @@ using InventoryManagement.Services.Shell;
 
 namespace InventoryManagement.Services.ArticleCreation;
 
-public class WomenShirtFactory : ArticleFactory
+public class WomenShirtFactory : ShirtFactory
 {
     public WomenShirtFactory(ShellInputProvider inputProvider) 
         : base(inputProvider)
@@ -12,6 +12,25 @@ public class WomenShirtFactory : ArticleFactory
 
     public override Article Create(int id)
     {
-        throw new NotImplementedException();
+        var shirt = new WomenShirt(id);
+        
+        ReadArticleProperties(shirt);
+        ReadShirtProperties(shirt);
+
+        shirt.Size = ReadShirtSize();
+        shirt.Material = ReadMaterial();
+
+        ReadInventoryProperties(shirt);
+
+        return shirt;
+    }
+
+    private int ReadShirtSize()
+    {
+        return InputProvider.ReadPositiveNumber("Size: ");
+    }
+    private string ReadMaterial()
+    {
+        return InputProvider.ReadNonEmptyString("Material: ");
     }
 }

@@ -60,4 +60,17 @@ public class ShellInputProvider
 
         return size;
     }
+
+    public bool ReadBoolean(string displayText)
+    {
+        string input;
+        bool result;
+        do
+        {
+            Console.Write(displayText);
+            input = Console.ReadLine();
+        } while(!bool.TryParse(input,out result));
+
+        return result;
+    }
 }
