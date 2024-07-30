@@ -3,7 +3,7 @@ using InventoryManagement.Services.Shell;
 
 namespace InventoryManagement.Services.ArticleCreation;
 
-public class MenShoeFactory : ArticleFactory
+public class MenShoeFactory : ShoeFactory
 {
     public MenShoeFactory(ShellInputProvider inputProvider) 
         : base(inputProvider)
@@ -12,6 +12,20 @@ public class MenShoeFactory : ArticleFactory
 
     public override Article Create(int id)
     {
-        throw new NotImplementedException();
+        var shoe = new MenShoe(id);
+
+        ReadArticleProperties(shoe);
+        ReadShoeProperties(shoe);
+
+        shoe.HasSteelToes = ReadHasSteelToes();
+
+        ReadInventoryProperties(shoe);
+
+        return shoe;
+    }
+
+    private bool ReadHasSteelToes()
+    {
+        return InputProvider.ReadBoolean("Has steel toes: ");
     }
 }
