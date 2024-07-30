@@ -26,7 +26,7 @@ public class ShellUserInputProcessor : IUserInputProcessor
 
     public void ShowArticleDetails(Article article)
     {
-        throw new NotImplementedException();
+        new ArticlePrinter().Print(article);
     }
 
     public void CreateNewArticle()
@@ -50,41 +50,13 @@ public class ShellUserInputProcessor : IUserInputProcessor
         _articleRepository.AddArticle(article);
     }
 
-    private Article CreateNewArticle(int choice)
-    {
-        var factory = GetArticleFactory(choice);
-        var id = ReadArticleId();
-        return factory.Create(id);
-    }
-
-    private ArticleFactory GetArticleFactory(int choice)
-    {
-        switch (choice)
-        {
-            case 1:
-                return new SockFactory(_inputProvider);
-            case 2:
-                return new HatFactory(_inputProvider);
-            case 3:
-                return new MenShirtFactory(_inputProvider);
-            case 4:
-                return new WomenShirtFactory(_inputProvider);
-            case 5:
-                return new MenShoeFactory(_inputProvider);
-            case 6:
-                return new WomenShoeFactory(_inputProvider);
-            default:
-                throw new NotSupportedException();
-        }
-    }
-
     private int ReadArticleId()
     {
         string input;
         int number;
         do
         {
-            Console.Write("Enter article number:");
+            Console.Write("Enter article number: ");
             input = Console.ReadLine();
 
         } while (!int.TryParse(input, out number) || _articleRepository.DoesIdExist(number));
@@ -126,4 +98,36 @@ public class ShellUserInputProcessor : IUserInputProcessor
 
         throw new NotImplementedException();
     }
+
+    #region article creation
+
+    private Article CreateNewArticle(int choice)
+    {
+        var factory = GetArticleFactory(choice);
+        var id = ReadArticleId();
+        return factory.Create(id);
+    }
+
+    private ArticleFactory GetArticleFactory(int choice)
+    {
+        switch (choice)
+        {
+            case 1:
+                return new SockFactory(_inputProvider);
+            case 2:
+                return new HatFactory(_inputProvider);
+            case 3:
+                return new MenShirtFactory(_inputProvider);
+            case 4:
+                return new WomenShirtFactory(_inputProvider);
+            case 5:
+                return new MenShoeFactory(_inputProvider);
+            case 6:
+                return new WomenShoeFactory(_inputProvider);
+            default:
+                throw new NotSupportedException();
+        }
+    }
+
+    #endregion
 }
