@@ -99,7 +99,7 @@ public class ShellUserInputProcessor : IUserInputProcessor
 
     public void DeleteArticle(Article article)
     {
-        throw new NotImplementedException();
+        _articleRepository.DeleteArticle(article);
     }
 
     public Article SelectArticle()

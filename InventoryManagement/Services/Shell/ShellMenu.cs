@@ -54,6 +54,7 @@ public class ShellMenu
 
         do
         {
+            Console.WriteLine();
             Console.WriteLine("Main Menu");
             Console.WriteLine("Please choose one of the following options");
             Console.WriteLine("[ 1] List all articles");
