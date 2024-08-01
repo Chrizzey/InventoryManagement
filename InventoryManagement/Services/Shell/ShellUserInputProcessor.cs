@@ -2,6 +2,7 @@
 using InventoryManagement.Models.Articles;
 using InventoryManagement.Models.Exceptions;
 using InventoryManagement.Services.ArticleCreation;
+using InventoryManagement.Services.ArticleUpdate;
 
 namespace InventoryManagement.Services.Shell;
 
@@ -49,12 +50,14 @@ public class ShellUserInputProcessor : IUserInputProcessor
         var article = factoryFacade.CreateNewArticle(choice);
         _articleRepository.AddArticle(article);
     }
-
-
+    
     public void UpdateArticle(Article article)
     {
         ShowArticleDetails(article);
-        throw new NotImplementedException();
+        Console.WriteLine();
+
+        var updateFacade = new ArticleUpdateFacade(new ShellInputProvider());
+        updateFacade.UpdateArticle(article);
     }
 
     public void DeleteArticle(Article article)
