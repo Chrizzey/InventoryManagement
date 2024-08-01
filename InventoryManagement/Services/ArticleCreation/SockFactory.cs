@@ -1,13 +1,16 @@
 ﻿using InventoryManagement.Models.Articles;
-using InventoryManagement.Services.Shell;
+using InventoryManagement.Services.CrudServices;
 
 namespace InventoryManagement.Services.ArticleCreation;
 
 public class SockFactory : ArticleFactory
 {
-    public SockFactory(ShellInputProvider inputProvider)
-        : base(inputProvider)
+    private readonly SockCrudService _sockCrudService;
+
+    public SockFactory(SockCrudService sockCrudService)
+        : base(sockCrudService)
     {
+        _sockCrudService = sockCrudService;
     }
 
     public override Article Create(int id)
@@ -17,21 +20,11 @@ public class SockFactory : ArticleFactory
 
         ReadArticleProperties(socks);
         
-        socks.Size = ReadSockSize();
-        socks.NumberOfPairs = ReadNumberOfPairs();
+        socks.Size = _sockCrudService.ReadSockSize();
+        socks.NumberOfPairs = _sockCrudService.ReadNumberOfPairs();
 
         ReadInventoryProperties(socks);
 
         return socks;
-    }
-
-    private int ReadNumberOfPairs()
-    {
-        return InputProvider.ReadPositiveNumber("Number of pairs: ");
-    }
-
-    private string ReadSockSize()
-    {
-        return InputProvider.ReadNonEmptyString("Size: ");
     }
 }

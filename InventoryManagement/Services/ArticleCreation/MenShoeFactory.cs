@@ -1,13 +1,16 @@
 ﻿using InventoryManagement.Models.Articles;
-using InventoryManagement.Services.Shell;
+using InventoryManagement.Services.CrudServices;
 
 namespace InventoryManagement.Services.ArticleCreation;
 
 public class MenShoeFactory : ShoeFactory
 {
-    public MenShoeFactory(ShellInputProvider inputProvider) 
-        : base(inputProvider)
+    private readonly MenShoeCrudService _menShoeCrudService;
+
+    public MenShoeFactory(MenShoeCrudService menMenShoeCrudService) 
+        : base(menMenShoeCrudService)
     {
+        _menShoeCrudService = menMenShoeCrudService;
     }
 
     public override Article Create(int id)
@@ -17,15 +20,10 @@ public class MenShoeFactory : ShoeFactory
         ReadArticleProperties(shoe);
         ReadShoeProperties(shoe);
 
-        shoe.HasSteelToes = ReadHasSteelToes();
+        shoe.HasSteelToes = _menShoeCrudService.ReadHasSteelToes();
 
         ReadInventoryProperties(shoe);
 
         return shoe;
-    }
-
-    private bool ReadHasSteelToes()
-    {
-        return InputProvider.ReadBoolean("Has steel toes: ");
     }
 }

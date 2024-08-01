@@ -1,13 +1,16 @@
 ﻿using InventoryManagement.Models.Articles;
-using InventoryManagement.Services.Shell;
+using InventoryManagement.Services.CrudServices;
 
 namespace InventoryManagement.Services.ArticleCreation;
 
 public class WomenShirtFactory : ShirtFactory
 {
-    public WomenShirtFactory(ShellInputProvider inputProvider) 
-        : base(inputProvider)
+    private readonly WomenShirtCrudService _womenShirtCrudService;
+
+    public WomenShirtFactory(WomenShirtCrudService womenShirtCrudService) 
+        : base(womenShirtCrudService)
     {
+        _womenShirtCrudService = womenShirtCrudService;
     }
 
     public override Article Create(int id)
@@ -17,20 +20,11 @@ public class WomenShirtFactory : ShirtFactory
         ReadArticleProperties(shirt);
         ReadShirtProperties(shirt);
 
-        shirt.Size = ReadShirtSize();
-        shirt.Material = ReadMaterial();
+        shirt.Size = _womenShirtCrudService.ReadShirtSize();
+        shirt.Material = _womenShirtCrudService.ReadMaterial();
 
         ReadInventoryProperties(shirt);
 
         return shirt;
-    }
-
-    private int ReadShirtSize()
-    {
-        return InputProvider.ReadPositiveNumber("Size: ");
-    }
-    private string ReadMaterial()
-    {
-        return InputProvider.ReadNonEmptyString("Material: ");
     }
 }

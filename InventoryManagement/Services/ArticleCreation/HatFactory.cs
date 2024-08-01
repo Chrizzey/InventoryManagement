@@ -1,14 +1,16 @@
-﻿using InventoryManagement.Contracts;
-using InventoryManagement.Models.Articles;
-using InventoryManagement.Services.Shell;
+﻿using InventoryManagement.Models.Articles;
+using InventoryManagement.Services.CrudServices;
 
 namespace InventoryManagement.Services.ArticleCreation;
 
 public class HatFactory : ArticleFactory
 {
-    public HatFactory(ShellInputProvider inputProvider) 
-        : base(inputProvider)
+    private readonly HatCrudService _hatCrudService;
+
+    public HatFactory(HatCrudService hatCrudService) 
+        : base(hatCrudService)
     {
+        _hatCrudService = hatCrudService;
     }
 
     public override Article Create(int id)
@@ -18,21 +20,11 @@ public class HatFactory : ArticleFactory
         
         ReadArticleProperties(hat);
         
-        hat.Size = ReadHatSize();
-        hat.Style = ReadStyle();
+        hat.Size = _hatCrudService.ReadHatSize();
+        hat.Style = _hatCrudService.ReadStyle();
 
         ReadInventoryProperties(hat);
 
         return hat;
-    }
-
-    private StandardSize ReadHatSize()
-    {
-        return InputProvider.ReadStandardSize("Size (Standard): ");
-    }
-
-    private string ReadStyle()
-    {
-        return InputProvider.ReadNonEmptyString("Style: ");
     }
 }

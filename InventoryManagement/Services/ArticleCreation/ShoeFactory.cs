@@ -1,22 +1,21 @@
 ﻿using InventoryManagement.Models.Articles;
-using InventoryManagement.Services.Shell;
+using InventoryManagement.Services.CrudServices;
 
 namespace InventoryManagement.Services.ArticleCreation;
 
 public abstract class ShoeFactory : ArticleFactory
 {
-    protected ShoeFactory(ShellInputProvider inputProvider) 
-        : base(inputProvider)
+    protected readonly ShoeCrudService ShoeCrudService;
+
+    protected ShoeFactory(ShoeCrudService shoeCrudService) 
+        : base(shoeCrudService)
     {
+        ShoeCrudService = shoeCrudService;
     }
 
     protected void ReadShoeProperties(Shoe shoe)
     {
-        shoe.ShoeSize = ReadShoeSize();
+        shoe.ShoeSize = ShoeCrudService.ReadShoeSize();
     }
 
-    protected decimal ReadShoeSize()
-    {
-        return InputProvider.ReadPositiveDecimal("Size: ");
-    } 
 }

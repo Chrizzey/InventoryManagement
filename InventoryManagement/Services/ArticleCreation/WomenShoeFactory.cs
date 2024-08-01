@@ -1,12 +1,15 @@
 ﻿using InventoryManagement.Models.Articles;
-using InventoryManagement.Services.Shell;
 
 namespace InventoryManagement.Services.ArticleCreation;
 
 public class WomenShoeFactory : ShoeFactory
 {
-    public WomenShoeFactory(ShellInputProvider inputProvider) : base(inputProvider)
+    private readonly WomenShoeCrudService _womenShoeCrudService;
+
+    public WomenShoeFactory(WomenShoeCrudService womenShoeCrudService)
+        : base(womenShoeCrudService)
     {
+        _womenShoeCrudService = womenShoeCrudService;
     }
 
     public override Article Create(int id)
@@ -16,15 +19,11 @@ public class WomenShoeFactory : ShoeFactory
         ReadArticleProperties(shoe);
         ReadShoeProperties(shoe);
 
-        shoe.HeelHeight = ReadHeelHeight();
+        shoe.HeelHeight = _womenShoeCrudService.ReadHeelHeight();
 
         ReadInventoryProperties(shoe);
 
         return shoe;
     }
 
-    private decimal ReadHeelHeight()
-    {
-        return InputProvider.ReadPositiveDecimal("Heel height: ");
-    }
 }

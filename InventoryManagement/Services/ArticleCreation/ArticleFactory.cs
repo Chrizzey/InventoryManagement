@@ -1,60 +1,30 @@
 ﻿using InventoryManagement.Models.Articles;
-using InventoryManagement.Services.Shell;
+using InventoryManagement.Services.CrudServices;
 
 namespace InventoryManagement.Services.ArticleCreation;
 
 public abstract class ArticleFactory
 {
-    protected ShellInputProvider InputProvider;
+    protected ArticleCrudService ArticleCrudService;
 
-    protected ArticleFactory(ShellInputProvider inputProvider)
+    protected ArticleFactory(ArticleCrudService articleCrudService)
     {
-        InputProvider = inputProvider;
+        ArticleCrudService = articleCrudService;
     }
 
     public abstract Article Create(int id);
-
-    protected string ReadBrand()
-    {
-        return InputProvider.ReadNonEmptyString("Brand: ");
-    }
-
-    protected string ReadName()
-    {
-        return InputProvider.ReadNonEmptyString("Name: ");
-    }
-
-    protected string ReadColor()
-    {
-        return InputProvider.ReadNonEmptyString("Color: ");
-    }
     
-    protected int ReadItemsInStock()
-    {
-        return InputProvider.ReadPositiveNumber("Items in stock: ");
-    }
-    
-    protected decimal ReadPrice()
-    {
-        return InputProvider.ReadPositiveDecimal("Price: ");
-    }
-
-    protected string ReadDescription()
-    {
-        return InputProvider.ReadString("Description: ");
-    }
-
     protected void ReadArticleProperties(Article article)
     {
-        article.Name = ReadName();
-        article.Brand = ReadBrand();
-        article.Color = ReadColor();
-        article.Price = ReadPrice();
+        article.Name = ArticleCrudService.ReadName();
+        article.Brand = ArticleCrudService.ReadBrand();
+        article.Color = ArticleCrudService.ReadColor();
+        article.Price = ArticleCrudService.ReadPrice();
     }
 
     protected void ReadInventoryProperties(Article article)
     {
-        article.Description = ReadDescription();
-        article.ItemsInStock = ReadItemsInStock();
+        article.Description = ArticleCrudService.ReadDescription();
+        article.ItemsInStock = ArticleCrudService.ReadItemsInStock();
     }
 }

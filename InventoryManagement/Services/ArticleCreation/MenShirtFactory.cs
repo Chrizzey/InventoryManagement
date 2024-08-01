@@ -1,14 +1,16 @@
-﻿using InventoryManagement.Contracts;
-using InventoryManagement.Models.Articles;
-using InventoryManagement.Services.Shell;
+﻿using InventoryManagement.Models.Articles;
+using InventoryManagement.Services.CrudServices;
 
 namespace InventoryManagement.Services.ArticleCreation;
 
 public class MenShirtFactory : ShirtFactory
 {
-    public MenShirtFactory(ShellInputProvider inputProvider) 
-        : base(inputProvider)
+    private readonly MenShirtCrudService _menShirtCrudService;
+
+    public MenShirtFactory(MenShirtCrudService menShirtCrudService) 
+        : base(menShirtCrudService)
     {
+        _menShirtCrudService = menShirtCrudService;
     }
 
     public override Article Create(int id)
@@ -19,15 +21,10 @@ public class MenShirtFactory : ShirtFactory
         ReadArticleProperties(shirt);
         ReadShirtProperties(shirt);
 
-        shirt.ShirtSize = ReadShirtSize();
+        shirt.ShirtSize = _menShirtCrudService.ReadShirtSize();
 
         ReadInventoryProperties(shirt);
 
         return shirt;
-    }
-
-    private StandardSize ReadShirtSize()
-    {
-        return InputProvider.ReadStandardSize("Size: ");
     }
 }

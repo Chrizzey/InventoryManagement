@@ -1,28 +1,21 @@
 ﻿using InventoryManagement.Models.Articles;
-using InventoryManagement.Services.Shell;
+using InventoryManagement.Services.CrudServices;
 
 namespace InventoryManagement.Services.ArticleCreation;
 
 public abstract class ShirtFactory : ArticleFactory
 {
-    protected ShirtFactory(ShellInputProvider inputProvider) 
-        : base(inputProvider)
-    {
-    }
+    protected readonly ShirtCrudService ShirtCrudService;
 
-    protected string ReadPattern()
+    protected ShirtFactory(ShirtCrudService shirtCrudService) 
+        : base(shirtCrudService)
     {
-        return InputProvider.ReadNonEmptyString("Pattern: ");
+        ShirtCrudService = shirtCrudService;
     }
-
-    protected bool ReadLongSleeved()
-    {
-        return InputProvider.ReadBoolean("Has long sleeves: ");
-    }
-
+    
     protected void ReadShirtProperties(Shirt shirt)
     {
-        shirt.Pattern = ReadPattern();
-        shirt.HasLongSleeves = ReadLongSleeved();
+        shirt.Pattern = ShirtCrudService.ReadPattern();
+        shirt.HasLongSleeves = ShirtCrudService.ReadLongSleeved();
     }
 }
