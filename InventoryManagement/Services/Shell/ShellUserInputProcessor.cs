@@ -9,24 +9,23 @@ public class ShellUserInputProcessor : IUserInputProcessor
 {
     private readonly IArticleRepository _articleRepository;
     private readonly ShellInputProvider _inputProvider;
+    private readonly ArticlePrinter _articlePrinter;
 
     public ShellUserInputProcessor(IArticleRepository articleRepository)
     {
         _articleRepository = articleRepository;
+        _articlePrinter = new ArticlePrinter(articleRepository);
         _inputProvider = new ShellInputProvider();
     }
 
     public void ListAllArticles()
     {
-        foreach (var article in _articleRepository.GetAllArticles())
-        {
-            Console.WriteLine($"{article.Name} No.: {article.Id} Price: {article.Price} In Stock: {article.ItemsInStock}");
-        }
+        _articlePrinter.PrintOverview();
     }
 
     public void ShowArticleDetails(Article article)
     {
-        new ArticlePrinter().Print(article);
+        _articlePrinter.Print(article);
     }
 
     public void CreateNewArticle()
@@ -88,4 +87,3 @@ public class ShellUserInputProcessor : IUserInputProcessor
         throw new NotImplementedException();
     }
 }
-

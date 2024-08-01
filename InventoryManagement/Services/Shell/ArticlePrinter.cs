@@ -1,9 +1,17 @@
-﻿using InventoryManagement.Models.Articles;
+﻿using InventoryManagement.Contracts;
+using InventoryManagement.Models.Articles;
 
 namespace InventoryManagement.Services.Shell;
 
 public class ArticlePrinter
 {
+    private readonly IArticleRepository _articleRepository;
+
+    public ArticlePrinter(IArticleRepository articleRepository)
+    {
+        _articleRepository = articleRepository;
+    }
+
     public void Print(Article article)
     {
         Console.WriteLine();
@@ -97,5 +105,13 @@ public class ArticlePrinter
     {
         Console.WriteLine($"\t            Size: {socks.Size}");
         Console.WriteLine($"\t Number of Pairs: {socks.NumberOfPairs}");
+    }
+
+    public void PrintOverview()
+    {
+        foreach (var article in _articleRepository.GetAllArticles())
+        {
+            Console.WriteLine($"{article.Name} No.: {article.Id} Price: {article.Price} In Stock: {article.ItemsInStock}");
+        }
     }
 }
