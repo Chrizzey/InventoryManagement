@@ -20,6 +20,7 @@ public class ArticlePrinter
         Console.WriteLine($"\t            Name: {article.Name}");
         Console.WriteLine($"\t           Brand: {article.Brand}");
         Console.WriteLine($"\t           Color: {article.Color}");
+        Console.WriteLine($"\t           Price: {article.Price}");
         Console.WriteLine($"\t        In stock: {article.ItemsInStock}");
 
         PrintArticleProperties(article);

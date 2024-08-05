@@ -13,7 +13,12 @@ public class WomenShirtUpdater : ShirtUpdater
         _womenShirtCrudService = womenShirtCrudService;
     }
 
-    public override void UpdateArticle(Article article)
+    public override void UpdateDerivedArticle(Article article)
+    {
+        throw new NotImplementedException();
+    }
+
+    protected override void AddDerivedOptions(List<PropertyMenuItem> menuItems)
     {
         throw new NotImplementedException();
     }

@@ -58,6 +58,7 @@ public class ShellUserInputProcessor : IUserInputProcessor
 
         var updateFacade = new ArticleUpdateFacade(new ShellInputProvider());
         updateFacade.UpdateArticle(article);
+        _articleRepository.UpdateArticle(article);
     }
 
     public void DeleteArticle(Article article)

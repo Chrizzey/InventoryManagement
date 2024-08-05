@@ -40,4 +40,9 @@ public abstract class ArticleCrudService
     {
         return InputProvider.ReadString("Description: ");
     }
+
+    public int ReadId()
+    {
+        return InputProvider.ReadPositiveNumber("Id: ");
+    }
 }

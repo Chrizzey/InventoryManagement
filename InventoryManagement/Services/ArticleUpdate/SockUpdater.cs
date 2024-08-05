@@ -13,8 +13,15 @@ public class SockUpdater : ArticleUpdater
         _sockCrudService = sockCrudService;
     }
 
-    public override void UpdateArticle(Article article)
+    public override void UpdateDerivedArticle(Article article)
     {
         throw new NotImplementedException();
+    }
+
+    protected override void AddDerivedOptions(List<PropertyMenuItem> menuItems)
+    {
+        menuItems.Add(new PropertyMenuItem(menuItems.Count, "Size"));   
+        menuItems.Add(new PropertyMenuItem(menuItems.Count, "Number of pairs"));   
+        
     }
 }

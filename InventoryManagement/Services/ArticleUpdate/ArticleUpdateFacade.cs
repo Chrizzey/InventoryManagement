@@ -1,4 +1,5 @@
 ﻿using InventoryManagement.Models.Articles;
+using InventoryManagement.Services.ArticleCreation;
 using InventoryManagement.Services.CrudServices;
 using InventoryManagement.Services.Shell;
 
@@ -25,31 +26,24 @@ public class ArticleUpdateFacade
         {
             case Hat:
                 var hatCrudService = new HatCrudService(_shellInputProvider);
-                return new HatUpdater();
+                return new HatUpdater(hatCrudService);
             case Socks:
-                return new SockUpdater();
+                var sockCrudService = new SockCrudService(_shellInputProvider);
+                return new SockUpdater(sockCrudService);
             case MenShirt:
-                return new MenShirtUpdater();
+                var menShirtCrudService = new MenShirtCrudService(_shellInputProvider);
+                return new MenShirtUpdater(menShirtCrudService);
             case WomenShirt:
-                return new WomenShirtUpdater();
+                var womenShirtCrudService = new WomenShirtCrudService(_shellInputProvider);
+                return new WomenShirtUpdater(womenShirtCrudService);
             case MenShoe:
-                return new MenShoeUpdater();
+                var menShoeCrudService = new MenShoeCrudService(_shellInputProvider);
+                return new MenShoeUpdater(menShoeCrudService);
             case WomenShoe:
-                return new WomenShoeUpdater();
+                var womenShoeCrudService = new WomenShoeCrudService(_shellInputProvider);
+                return new WomenShoeUpdater(womenShoeCrudService);
             default:
                 throw new NotSupportedException();
         }
     }
-}
-
-public abstract class ArticleUpdater
-{
-    protected readonly ArticleCrudService ArticleCrudService;
-
-    protected ArticleUpdater(ArticleCrudService articleCrudService)
-    {
-        ArticleCrudService = articleCrudService;
-    }
-
-    public abstract void UpdateArticle(Article article);
 }
