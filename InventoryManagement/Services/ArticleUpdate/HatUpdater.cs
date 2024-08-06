@@ -3,22 +3,38 @@ using InventoryManagement.Services.CrudServices;
 
 namespace InventoryManagement.Services.ArticleUpdate;
 
+/// <summary>
+/// Represents a worker class that updates a <see cref="Hat"/>
+/// </summary>
 public class HatUpdater : ArticleUpdater
 {
     private readonly HatCrudService _hatCrudService;
 
+    /// <summary>
+    /// Creates a new updater
+    /// </summary>
+    /// <param name="hatCrudService">The CRUD service process hats</param>
     public HatUpdater(HatCrudService hatCrudService) 
         : base(hatCrudService)
     {
         _hatCrudService = hatCrudService;
     }
 
+    /// <summary>
+    /// Adds menu items specific to hats
+    /// </summary>
+    /// <param name="menuItems">The collection of all menu items available to the user</param>
     protected override void AddDerivedOptions(List<PropertyMenuItem> menuItems)
     {
         menuItems.Add(new PropertyMenuItem(menuItems.Count, "Size"));
         menuItems.Add(new PropertyMenuItem(menuItems.Count, "Style"));
     }
-    
+
+    /// <summary>
+    /// Updates a hat based on the <paramref name="menuItem"/> chosen by the user
+    /// </summary>
+    /// <param name="menuItem">The menu item chosen by the user describing which property to change</param>
+    /// <param name="article">The article to be updated</param>
     protected override void UpdateDerivedArticle(PropertyMenuItem menuItem, Article article)
     {
         var hat = (Hat) article;
@@ -38,6 +54,7 @@ public class HatUpdater : ArticleUpdater
         _hatCrudService.PrintCurrentValue("Current size: ", hat.Size);
         hat.Size = _hatCrudService.ReadHatSize();
     }
+
     private void UpdateSize(Hat hat)
     {
         _hatCrudService.PrintCurrentValue("Current style: ", hat.Style);

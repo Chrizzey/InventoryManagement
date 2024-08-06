@@ -3,16 +3,27 @@ using InventoryManagement.Services.CrudServices;
 
 namespace InventoryManagement.Services.ArticleUpdate;
 
+/// <summary>
+/// Represents a worker class that updates a <see cref="WomenShirt"/>
+/// </summary>
 public class WomenShirtUpdater : ShirtUpdater
 {
     private readonly WomenShirtCrudService _womenShirtCrudService;
 
+    /// <summary>
+    /// Creates a new updater
+    /// </summary>
+    /// <param name="womenShirtCrudService">The CRUD service process shirts for women</param>
     public WomenShirtUpdater(WomenShirtCrudService womenShirtCrudService) 
         : base(womenShirtCrudService)
     {
         _womenShirtCrudService = womenShirtCrudService;
     }
 
+    /// <summary>
+    /// Adds menu items specific to shirts for women
+    /// </summary>
+    /// <param name="menuItems">The collection of all menu items available to the user</param>
     protected override void AddDerivedOptions(List<PropertyMenuItem> menuItems)
     {
         base.AddDerivedOptions(menuItems);
@@ -21,6 +32,11 @@ public class WomenShirtUpdater : ShirtUpdater
         menuItems.Add(new PropertyMenuItem(menuItems.Count, "Material"));
     }
 
+    /// <summary>
+    /// Updates a shirt based on the <paramref name="menuItem"/> chosen by the user
+    /// </summary>
+    /// <param name="menuItem">The menu item chosen by the user describing which property to change</param>
+    /// <param name="article">The article to be updated</param>
     protected override void UpdateDerivedArticle(PropertyMenuItem menuItem, Article article)
     {
         var shirt = (WomenShirt) article;

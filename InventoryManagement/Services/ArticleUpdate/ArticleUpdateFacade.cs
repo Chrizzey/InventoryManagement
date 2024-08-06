@@ -5,15 +5,26 @@ using InventoryManagement.Services.Shell;
 
 namespace InventoryManagement.Services.ArticleUpdate;
 
+/// <summary>
+/// Represents the entry point for article manipulation
+/// </summary>
 public class ArticleUpdateFacade
 {
     private readonly ShellInputProvider _shellInputProvider;
 
+    /// <summary>
+    /// Creates a new instance of the facade
+    /// </summary>
+    /// <param name="shellInputProvider">A provider abstracting user inputs</param>
     public ArticleUpdateFacade(ShellInputProvider shellInputProvider)
     {
         _shellInputProvider = shellInputProvider;
     }
 
+    /// <summary>
+    /// Lets the user update a given <paramref name="article"/>
+    /// </summary>
+    /// <param name="article">The article to be updated</param>
     public void UpdateArticle(Article article)
     {
         var updater = GetArticleUpdater(article);

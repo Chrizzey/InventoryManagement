@@ -3,23 +3,38 @@ using InventoryManagement.Services.CrudServices;
 
 namespace InventoryManagement.Services.ArticleUpdate;
 
+/// <summary>
+/// Represents a worker class that updates a <see cref="Hat"/>
+/// </summary>
 public class SockUpdater : ArticleUpdater
 {
     private readonly SockCrudService _sockCrudService;
 
+    /// <summary>
+    /// Creates a new updater
+    /// </summary>
+    /// <param name="sockCrudService">The CRUD service process socks</param>
     public SockUpdater(SockCrudService sockCrudService)
         : base(sockCrudService)
     {
         _sockCrudService = sockCrudService;
     }
 
+    /// <summary>
+    /// Adds menu items specific to socks
+    /// </summary>
+    /// <param name="menuItems">The collection of all menu items available to the user</param>
     protected override void AddDerivedOptions(List<PropertyMenuItem> menuItems)
     {
         menuItems.Add(new PropertyMenuItem(menuItems.Count, "Size"));
         menuItems.Add(new PropertyMenuItem(menuItems.Count, "Number of pairs"));
-
     }
 
+    /// <summary>
+    /// Updates socks based on the <paramref name="menuItem"/> chosen by the user
+    /// </summary>
+    /// <param name="menuItem">The menu item chosen by the user describing which property to change</param>
+    /// <param name="article">The article to be updated</param>
     protected override void UpdateDerivedArticle(PropertyMenuItem menuItem, Article article)
     {
         var socks = (Socks)article;

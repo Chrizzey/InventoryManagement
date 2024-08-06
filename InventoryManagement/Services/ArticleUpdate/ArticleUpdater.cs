@@ -3,15 +3,26 @@ using InventoryManagement.Services.CrudServices;
 
 namespace InventoryManagement.Services.ArticleUpdate;
 
+/// <summary>
+/// A base class for updating articles
+/// </summary>
 public abstract class ArticleUpdater
 {
     protected readonly ArticleCrudService ArticleCrudService;
 
+    /// <summary>
+    /// Creates a new instance
+    /// </summary>
+    /// <param name="articleCrudService">A CRUD service used to manipulate articles</param>
     protected ArticleUpdater(ArticleCrudService articleCrudService)
     {
         ArticleCrudService = articleCrudService;
     }
 
+    /// <summary>
+    /// Updates a given <paramref name="article"/>
+    /// </summary>
+    /// <param name="article">The article to be updated</param>
     public void UpdateArticle(Article article)
     {
         Console.WriteLine("Which attribute do you want to edit?");
@@ -24,6 +35,12 @@ public abstract class ArticleUpdater
         HandleUpdate(menuItems[choice], article);
     }
 
+    /// <summary>
+    /// When overridden, updates a single property of the current <paramref name="article"/>
+    /// based on the <paramref name="menuItem"/> chosen by the user
+    /// </summary>
+    /// <param name="menuItem">The menu item chosen by the user describing which property to change</param>
+    /// <param name="article">The article to be updated</param>
     protected abstract void UpdateDerivedArticle(PropertyMenuItem menuItem, Article article);
 
     private int ReadUserChoice(List<PropertyMenuItem> menuItems)
@@ -32,6 +49,11 @@ public abstract class ArticleUpdater
         return choice - 1;
     }
 
+    /// <summary>
+    /// Processes the update of a property based on the users choice
+    /// </summary>
+    /// <param name="menuItem">The menu item chosen by the user describing which property to change</param>
+    /// <param name="article">The article to be updated</param>
     protected void HandleUpdate(PropertyMenuItem menuItem, Article article)
     {
         // todo: implement chain of responsibility 
@@ -106,6 +128,11 @@ public abstract class ArticleUpdater
         article.ItemsInStock = ArticleCrudService.ReadItemsInStock();
     }
 
+    /// <summary>
+    /// Fills a given collection <paramref name="menuItems"/> with menu items to let
+    /// the user choose which property to change
+    /// </summary>
+    /// <param name="menuItems">The collection of options for the user</param>
     protected void BuildMenu(List<PropertyMenuItem> menuItems)
     {
         menuItems.Add(new PropertyMenuItem(1, "Id"));
@@ -119,8 +146,13 @@ public abstract class ArticleUpdater
         AddDerivedOptions(menuItems);
     }
 
+    /// <summary>
+    /// When overriden, add specific menu items based on the derived article type
+    /// </summary>
+    /// <param name="menuItems">The collection of options for the user</param>
     protected abstract void AddDerivedOptions(List<PropertyMenuItem> menuItems);
 
+    // todo: extract out of this class????
     protected class PropertyMenuItem
     {
         public int Number { get; }
