@@ -20,6 +20,9 @@ public class WomenShirtUpdater : ShirtUpdater
 
     protected override void AddDerivedOptions(List<PropertyMenuItem> menuItems)
     {
-        throw new NotImplementedException();
+        base.AddDerivedOptions(menuItems);
+
+        menuItems.Add(new PropertyMenuItem(menuItems.Count, "Size"));
+        menuItems.Add(new PropertyMenuItem(menuItems.Count, "Material"));
     }
 }

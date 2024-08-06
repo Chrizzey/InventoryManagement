@@ -8,4 +8,9 @@ public abstract class ShoeUpdater : ArticleUpdater
         : base(shoeCrudService)
     {
     }
+
+    protected override void AddDerivedOptions(List<PropertyMenuItem> menuItems)
+    {
+        menuItems.Add(new PropertyMenuItem(menuItems.Count, "Shoe size"));
+    }
 }

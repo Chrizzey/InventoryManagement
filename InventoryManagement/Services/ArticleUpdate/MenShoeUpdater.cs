@@ -20,6 +20,8 @@ public class MenShoeUpdater : ShoeUpdater
 
     protected override void AddDerivedOptions(List<PropertyMenuItem> menuItems)
     {
-        throw new NotImplementedException();
+        base.AddDerivedOptions(menuItems);
+
+        menuItems.Add(new PropertyMenuItem(menuItems.Count, "Has steel toes"));
     }
 }

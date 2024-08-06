@@ -20,6 +20,7 @@ public class WomenShoeUpdater : ShoeUpdater
 
     protected override void AddDerivedOptions(List<PropertyMenuItem> menuItems)
     {
-        throw new NotImplementedException();
+        base.AddDerivedOptions(menuItems);
+        menuItems.Add(new PropertyMenuItem(menuItems.Count, "Heel height"));
     }
 }
