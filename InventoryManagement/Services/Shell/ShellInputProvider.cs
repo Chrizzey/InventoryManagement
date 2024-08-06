@@ -73,4 +73,10 @@ public class ShellInputProvider
 
         return result;
     }
+
+    public void PrintCurrentValue(string title, object value)
+    {
+        Console.Write(title);
+        Console.WriteLine(value);
+    }
 }

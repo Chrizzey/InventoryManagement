@@ -13,14 +13,29 @@ public class WomenShoeUpdater : ShoeUpdater
         _womenShoeCrudService = womenShoeCrudService;
     }
 
-    public override void UpdateDerivedArticle(Article article)
-    {
-        throw new NotImplementedException();
-    }
-
     protected override void AddDerivedOptions(List<PropertyMenuItem> menuItems)
     {
         base.AddDerivedOptions(menuItems);
         menuItems.Add(new PropertyMenuItem(menuItems.Count, "Heel height"));
+    }
+
+    protected override void UpdateDerivedArticle(PropertyMenuItem menuItem, Article article)
+    {
+        var shoe = (WomenShoe)article;
+        switch (menuItem.Text)
+        {
+            case "Heel height":
+                UpdateHeelHeight(shoe);
+                break;
+            default:
+                base.UpdateDerivedArticle(menuItem, article);
+                break;
+        }
+    }
+
+    private void UpdateHeelHeight(WomenShoe shoe)
+    {
+        _womenShoeCrudService.PrintCurrentValue("Current heel height: ", shoe.HeelHeight);
+        shoe.HeelHeight = _womenShoeCrudService.ReadHeelHeight();
     }
 }

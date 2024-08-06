@@ -24,7 +24,7 @@ public abstract class ArticleUpdater
         HandleUpdate(menuItems[choice], article);
     }
 
-    public abstract void UpdateDerivedArticle(Article article);
+    protected abstract void UpdateDerivedArticle(PropertyMenuItem menuItem, Article article);
 
     private int ReadUserChoice(List<PropertyMenuItem> menuItems)
     {
@@ -32,7 +32,7 @@ public abstract class ArticleUpdater
         return choice - 1;
     }
 
-    protected virtual void HandleUpdate(PropertyMenuItem menuItem, Article article)
+    protected void HandleUpdate(PropertyMenuItem menuItem, Article article)
     {
         // todo: implement chain of responsibility 
         switch (menuItem.Text)
@@ -59,57 +59,50 @@ public abstract class ArticleUpdater
                 UpdateItemsInStock(article);
                 break;
             default:
-                UpdateDerivedArticle(article);
+                UpdateDerivedArticle(menuItem, article);
                 break;
         }
     }
     
     private void UpdateId(Article article)
     {
-        Console.Write("Current id: ");
-        Console.WriteLine(article.Id);
+        ArticleCrudService.PrintCurrentValue("Current id: ", article.Id);
         article.Id = ArticleCrudService.ReadId();
     }
 
     private void UpdateName(Article article)
     {
-        Console.Write("Current name: ");
-        Console.WriteLine(article.Name);
+        ArticleCrudService.PrintCurrentValue("Current name: ", article.Name);
         article.Name = ArticleCrudService.ReadName();
     }
 
     private void UpdatePrice(Article article)
     {
-        Console.Write("Current price: ");
-        Console.WriteLine(article.Price);
+        ArticleCrudService.PrintCurrentValue("Current price: ", article.Price);
         article.Price = ArticleCrudService.ReadPrice();
     }
 
     private void UpdateBrand(Article article)
     {
-        Console.Write("Current brand: ");
-        Console.WriteLine(article.Brand);
+        ArticleCrudService.PrintCurrentValue("Current brand: ", article.Brand);
         article.Brand = ArticleCrudService.ReadBrand();
     }
 
     private void UpdateColor(Article article)
     {
-        Console.Write("Current color: ");
-        Console.WriteLine(article.Color);
+        ArticleCrudService.PrintCurrentValue("Current color: ", article.Color);
         article.Color = ArticleCrudService.ReadColor();
     }
 
     private void UpdateDescription(Article article)
     {
-        Console.Write("Current description: ");
-        Console.WriteLine(article.Description);
+        ArticleCrudService.PrintCurrentValue("Current description: ", article.Description);
         article.Description = ArticleCrudService.ReadDescription();
     }
 
     private void UpdateItemsInStock(Article article)
     {
-        Console.Write("Current items in stock: ");
-        Console.WriteLine(article.ItemsInStock);
+        ArticleCrudService.PrintCurrentValue("Current items in stock: ", article.ItemsInStock);
         article.ItemsInStock = ArticleCrudService.ReadItemsInStock();
     }
 

@@ -45,4 +45,9 @@ public abstract class ArticleCrudService
     {
         return InputProvider.ReadPositiveNumber("Id: ");
     }
+
+    public void PrintCurrentValue(string title, object value)
+    {
+        return InputProvider.PrintCurrentValue(title, value);
+    }
 }

@@ -13,15 +13,30 @@ public class MenShirtUpdater : ShirtUpdater
         _menShirtCrudService = menShirtCrudService;
     }
 
-    public override void UpdateDerivedArticle(Article article)
-    {
-        throw new NotImplementedException();
-    }
-
     protected override void AddDerivedOptions(List<PropertyMenuItem> menuItems)
     {
         base.AddDerivedOptions(menuItems);
 
         menuItems.Add(new PropertyMenuItem(menuItems.Count, "Size"));
+    }
+
+    protected override void UpdateDerivedArticle(PropertyMenuItem menuItem, Article article)
+    {
+        var menShirt = (MenShirt)article;
+        switch (menuItem.Text)
+        {
+            case "Size":
+                UpdateSize(menShirt);
+                break;
+            default:
+                base.UpdateDerivedArticle(menuItem, article);
+                break;
+        }
+    }
+
+    private void UpdateSize(MenShirt menShirt)
+    {
+        _menShirtCrudService.PrintCurrentValue("Current size:", menShirt.ShirtSize);
+        menShirt.ShirtSize = _menShirtCrudService.ReadShirtSize();
     }
 }
