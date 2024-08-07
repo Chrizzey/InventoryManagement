@@ -2,16 +2,23 @@
 
 namespace InventoryManagement.Services.ArticleCreation;
 
+/// <summary>
+/// Represents a creation service to create <see cref="WomenShoe"/> items
+/// </summary>
 public class WomenShoeFactory : ShoeFactory
 {
     private readonly WomenShoeCrudService _womenShoeCrudService;
 
+    /// <summary>
+    /// Creates a new instance
+    /// </summary>
     public WomenShoeFactory(WomenShoeCrudService womenShoeCrudService)
         : base(womenShoeCrudService)
     {
         _womenShoeCrudService = womenShoeCrudService;
     }
 
+    /// <inheritdoc />
     public override Article Create(int id)
     {
         var shoe = new WomenShoe(id);

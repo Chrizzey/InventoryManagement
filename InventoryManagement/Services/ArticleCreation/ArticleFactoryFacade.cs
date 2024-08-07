@@ -5,20 +5,33 @@ using InventoryManagement.Services.Shell;
 
 namespace InventoryManagement.Services.ArticleCreation;
 
+/// <summary>
+/// Represents a single entry point into article creation
+/// </summary>
 public class ArticleFactoryFacade
 {
     private readonly IArticleRepository _articleRepository;
     private readonly ShellInputProvider _inputProvider;
 
+    /// <summary>
+    /// Initializes a new facade
+    /// </summary>
+    /// <param name="inputProvider">An abstraction providing information from the user</param>
+    /// <param name="articleRepository">An abstraction of the storage of all articles</param>
     public ArticleFactoryFacade(ShellInputProvider inputProvider, IArticleRepository articleRepository)
     {
         _inputProvider = inputProvider;
         _articleRepository = articleRepository;
     }
 
-    public Article CreateNewArticle(int choice)
+    /// <summary>
+    /// Creates a new article based on the users inputs
+    /// </summary>
+    /// <param name="articleType">The article type provided by the user</param>
+    /// <returns>The created and initialized article</returns>
+    public Article CreateNewArticle(int articleType)
     {
-        var factory = GetArticleFactory(choice);
+        var factory = GetArticleFactory(articleType);
         var id = ReadArticleId();
         return factory.Create(id);
     }
