@@ -1,0 +1,27 @@
+@startuml use cases
+title Use Cases
+left to right direction
+
+actor user
+
+rectangle InventoryManagement {
+    usecase "find article" as find
+    usecase "add article" as add
+    usecase "update article" as update
+    usecase "delete article" as delete
+    usecase "see article overview" as overview
+    usecase "see article details" as details
+}
+
+user --> add
+user --> update
+user --> overview
+user --> details
+user --> delete
+
+update ..> find : include
+details ..> find : include
+delete ..> find: include
+details .> overview : extend
+
+@enduml
