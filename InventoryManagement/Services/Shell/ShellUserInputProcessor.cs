@@ -49,6 +49,7 @@ public class ShellUserInputProcessor : IUserInputProcessor
         var factoryFacade = new ArticleFactoryFacade(_inputProvider, _articleRepository);
         var article = factoryFacade.CreateNewArticle(choice);
         _articleRepository.AddArticle(article);
+        Console.WriteLine("The article with ID {0} has been created", article.Id);
     }
     
     public void UpdateArticle(Article article)
@@ -59,11 +60,13 @@ public class ShellUserInputProcessor : IUserInputProcessor
         var updateFacade = new ArticleUpdateFacade(new ShellInputProvider(), new ShellMenuService());
         updateFacade.UpdateArticle(article);
         _articleRepository.UpdateArticle(article);
+        Console.WriteLine("The article with ID {0} has been updated", article.Id);
     }
 
     public void DeleteArticle(Article article)
     {
         _articleRepository.DeleteArticle(article);
+        Console.WriteLine("The article with ID {0} has been deleted", article.Id);
     }
 
     public Article SelectArticle()
