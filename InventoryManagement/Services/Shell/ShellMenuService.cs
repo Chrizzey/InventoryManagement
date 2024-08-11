@@ -37,7 +37,7 @@ public class ShellMenuService : IMenuService
         do
         {
             input = Console.ReadLine();
-        } while (int.TryParse(input, out number));
+        } while (!int.TryParse(input, out number));
 
         return number;
     }
