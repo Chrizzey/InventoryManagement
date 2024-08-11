@@ -12,6 +12,9 @@ namespace InventoryManagement.Services
     {
         private readonly Dictionary<int, Article> _articles;
 
+        /// <summary>
+        /// Creates a new instance
+        /// </summary>
         public ArticleRepository()
         {
             _articles = new Dictionary<int, Article>();

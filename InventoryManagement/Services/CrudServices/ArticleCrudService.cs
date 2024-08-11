@@ -48,6 +48,6 @@ public abstract class ArticleCrudService
 
     public void PrintCurrentValue(string title, object value)
     {
-        return InputProvider.PrintCurrentValue(title, value);
+        InputProvider.PrintCurrentValue(title, value);
     }
 }

@@ -1,63 +1,63 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="FullSignature">
   <Class Name="InventoryManagement.Models.Articles.Article">
-    <Position X="7.5" Y="0.5" Width="2.25" />
+    <Position X="8.75" Y="0.5" Width="2.25" />
     <TypeIdentifier>
       <HashCode>AAACAAAAAQAgAAAAAAAAAAQAAAAAAAAAAAAAgEABABA=</HashCode>
       <FileName>Models\Articles\Article.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="InventoryManagement.Models.Articles.Hat">
-    <Position X="4.5" Y="4.25" Width="2.25" />
+    <Position X="8.5" Y="4.25" Width="2.25" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAABAAAAAAAAAA=</HashCode>
       <FileName>Models\Articles\Hat.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="InventoryManagement.Models.Articles.MenShoe">
-    <Position X="13.75" Y="6.5" Width="2.25" />
+    <Position X="11.5" Y="6.5" Width="2.25" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Models\Articles\MenShoe.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="InventoryManagement.Models.Articles.MenShirt">
-    <Position X="7.5" Y="6.75" Width="2.5" />
+    <Position X="5.25" Y="6.75" Width="2.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Models\Articles\MensShirts.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="InventoryManagement.Models.Articles.Shirt">
-    <Position X="9" Y="4.25" Width="2.5" />
+    <Position X="5.25" Y="4.25" Width="2.5" />
     <TypeIdentifier>
       <HashCode>ABAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Models\Articles\Shirt.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="InventoryManagement.Models.Articles.Shoe">
-    <Position X="15.25" Y="4.25" Width="2.25" />
+    <Position X="11.5" Y="4.25" Width="2.25" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Models\Articles\Shoe.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="InventoryManagement.Models.Articles.Socks">
-    <Position X="1.25" Y="4.25" Width="2.5" />
+    <Position X="14.5" Y="4" Width="2.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAgAAAAAQAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Models\Articles\Socks.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="InventoryManagement.Models.Articles.WomenShirt">
-    <Position X="10.75" Y="6.75" Width="2.25" />
+    <Position X="8.5" Y="6.75" Width="2.25" />
     <TypeIdentifier>
       <HashCode>AEAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Models\Articles\WomenShirt.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="InventoryManagement.Models.Articles.WomenShoe">
-    <Position X="16.75" Y="6.5" Width="2.5" />
+    <Position X="14.5" Y="6.5" Width="2.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Models\Articles\WomenShoe.cs</FileName>

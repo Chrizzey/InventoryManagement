@@ -1,0 +1,95 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="InventoryManagement.Services.ArticleRepository">
+    <Position X="0.5" Y="1" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAQAAAQAgAAAEBAAAAAAAAAAAAAAAAEEAAAAIAAAAA=</HashCode>
+      <FileName>Services\ArticleRepository.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="InventoryManagement.Application">
+    <Position X="7" Y="1.25" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Application.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_articleRepository" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="InventoryManagement.Services.ArticleCreation.ArticleFactoryFacade">
+    <Position X="7" Y="2.75" Width="1.75" />
+    <AssociationLine Name="_articleRepository" Type="InventoryManagement.Contracts.IArticleRepository">
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="-1.807" Y="0.695" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAgEAAAAAAgAAAABAAAAAAAAAAAAAAAABAAAAAAA=</HashCode>
+      <FileName>Services\ArticleCreation\ArticleFactoryFacade.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_articleRepository" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="InventoryManagement.Services.Shell.ArticlePrinter">
+    <Position X="9" Y="0.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>gAAAAAUAwAAAAAAAQCBAAAAgAAAAAAAAAAACAIAEAAA=</HashCode>
+      <FileName>Services\Shell\ArticlePrinter.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_articleRepository" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="InventoryManagement.Services.Shell.ShellUserInputProcessor">
+    <Position X="9" Y="4" Width="2" />
+    <AssociationLine Name="_articleRepository" Type="InventoryManagement.Contracts.IArticleRepository" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="9" Y="5.923" />
+        <Point X="4.062" Y="5.923" />
+        <Point X="4.062" Y="3.065" />
+      </Path>
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="-2.775" Y="2.602" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAAQAgAAAAAAAgBAAABAAAAAAAAAAgABAAAAAQAgAAA=</HashCode>
+      <FileName>Services\Shell\ShellUserInputProcessor.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_articleRepository" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="InventoryManagement.Services.TestDataFactory">
+    <Position X="0.5" Y="5.5" Width="1.5" />
+    <AssociationLine Name="_articleRepository" Type="InventoryManagement.Contracts.IArticleRepository" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="2" Y="5.961" />
+        <Point X="3.562" Y="5.961" />
+        <Point X="3.562" Y="3.065" />
+      </Path>
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="0.173" Y="2.091" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAABIAAAAAAAAAAAAAAAAAAAAAEA=</HashCode>
+      <FileName>Services\TestDataFactory.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_articleRepository" />
+    </ShowAsAssociation>
+  </Class>
+  <Interface Name="InventoryManagement.Contracts.IArticleRepository">
+    <Position X="3.25" Y="1" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAQAAAQAgAAAABAAAAAAAAAAAAAAAAAEAAAAIAAAAA=</HashCode>
+      <FileName>Contracts\IArticleRepository.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
