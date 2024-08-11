@@ -12,7 +12,8 @@ internal class Program
         var repository = new ArticleRepository();
 
         var testDataFactory = new TestDataFactory(repository);
-        testDataFactory.AddSocks(5);
+        testDataFactory.AddSocks(1);
+        testDataFactory.AddMenShirts();
 
         var application = new Application(repository);
         application.Start();

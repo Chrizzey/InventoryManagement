@@ -42,5 +42,21 @@ namespace InventoryManagement.Services
 
             throw new NotImplementedException();
         }
+
+        public void AddMenShirts()
+        {
+            _articleRepository.AddArticle(new MenShirt(100)
+            {
+                Name = "Formal Shirt",
+                Brand = "Armani",
+                Color = "Pale Blue",
+                Price = 59.99m,
+                Pattern = "Solid Color",
+                HasLongSleeves = true,
+                ShirtSize = StandardSize.Medium,
+                Description = "A stylish shirt by Armani in solid pale blue",
+                ItemsInStock = 152
+            });
+        }
     }
 }
