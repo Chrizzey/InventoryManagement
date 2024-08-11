@@ -25,3 +25,60 @@ delete ..> find: include
 details .> overview : extend
 
 @enduml
+
+@startuml  create men shirt
+
+actor User
+
+ShellMenu -> User: Show main menu
+User -> ShellMenu: Option 3
+ShellMenu -> UserInputProcessor: Create new article
+UserInputProcessor -> User: Whick article do you want to create
+User -> UserInputProcessor: Option 3
+create ArticleFactoryFacade
+UserInputProcessor -> ArticleFactoryFacade: Create new article
+ArticleFactoryFacade -> User: Enter article number
+User -> ArticleFactoryFacade: article number
+create MenShirtFactory
+ArticleFactoryFacade -> MenShirtFactory: Create article
+MenShirtFactory -> User: Ask article properties
+User -> MenShirtFactory: Article properties
+MenShirtFactory -> User: Ask shirt properties
+User -> MenShirtFactory: Shirt properties
+MenShirtFactory -> User: Ask men shirt properties
+User -> MenShirtFactory: Men shirt properties
+MenShirtFactory -> User: Ask inventory properties
+User -> MenShirtFactory: Inventory properties
+
+
+MenShirtFactory -> UserInputProcessor: MenShirt instance
+UserInputProcessor -> ArticleRepository: Add article
+UserInputProcessor -> User: Success message
+
+@enduml
+
+@startuml print articles
+
+actor User
+ShellMenu -> User: Show main menu
+alt show overview
+    User -> ShellMenu: Option 1
+    ShellMenu -> UserInputProcessor: List all articles
+    UserInputProcessor -> ArticlePrinter: Print overview
+    ArticlePrinter -> ArticleRepository: Get all articles
+    ArticleRepository -> ArticlePrinter: all articles
+    ArticlePrinter -> User: Article overview    
+else show details
+    User -> ShellMenu: Option 2
+    ShellMenu -> UserInputProcessor: Select article
+    UserInputProcessor -> User: Please enter the article number
+    User -> UserInputProcessor: Article number
+    UserInputProcessor -> ArticleRepository: Get article by ID
+    ArticleRepository -> UserInputProcessor: Article with matching ID
+    UserInputProcessor -> ShellMenu: Selected article
+    ShellMenu -> UserInputProcessor: Show article details
+    UserInputProcessor -> ArticlePrinter: Show article details
+    ArticlePrinter -> User: Article details
+end
+
+@enduml
