@@ -23,8 +23,6 @@ public class HatFactory : ArticleFactory
     public override Article Create(int id)
     {
         var hat = new Hat(id);
-        Console.WriteLine("Please enter the following attributes: ");
-        
         ReadArticleProperties(hat);
         
         hat.Size = _hatCrudService.ReadHatSize();

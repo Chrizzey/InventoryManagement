@@ -9,14 +9,17 @@ namespace InventoryManagement.Services.ArticleUpdate;
 public abstract class ArticleUpdater
 {
     protected readonly ArticleCrudService ArticleCrudService;
+    private readonly IMenuService _menuService;
 
     /// <summary>
     /// Creates a new instance
     /// </summary>
     /// <param name="articleCrudService">A CRUD service used to manipulate articles</param>
-    protected ArticleUpdater(ArticleCrudService articleCrudService)
+    /// <param name="menuService">A service used to print the property update menu</param>
+    protected ArticleUpdater(ArticleCrudService articleCrudService, IMenuService menuService)
     {
         ArticleCrudService = articleCrudService;
+        _menuService = menuService;
     }
 
     /// <summary>
@@ -25,14 +28,12 @@ public abstract class ArticleUpdater
     /// <param name="article">The article to be updated</param>
     public void UpdateArticle(Article article)
     {
-        Console.WriteLine("Which attribute do you want to edit?");
         var menuItems = new List<PropertyMenuItem>();
         BuildMenu(menuItems);
-        PrintMenu(menuItems);
+        
+        var choice = _menuService.PrintMenuAndReadUserChoice(menuItems);
 
-        var choice = ReadUserChoice(menuItems);
-
-        HandleUpdate(menuItems[choice], article);
+        HandleUpdate(choice, article);
     }
 
     /// <summary>
@@ -42,12 +43,6 @@ public abstract class ArticleUpdater
     /// <param name="menuItem">The menu item chosen by the user describing which property to change</param>
     /// <param name="article">The article to be updated</param>
     protected abstract void UpdateDerivedArticle(PropertyMenuItem menuItem, Article article);
-
-    private int ReadUserChoice(List<PropertyMenuItem> menuItems)
-    {
-        var choice = int.Parse(Console.ReadLine());
-        return choice - 1;
-    }
 
     /// <summary>
     /// Processes the update of a property based on the users choice
@@ -65,7 +60,7 @@ public abstract class ArticleUpdater
             case "Name":
                 UpdateName(article);
                 break;
-            case "Price": 
+            case "Price":
                 UpdatePrice(article);
                 break;
             case "Brand":
@@ -85,7 +80,7 @@ public abstract class ArticleUpdater
                 break;
         }
     }
-    
+
     private void UpdateId(Article article)
     {
         ArticleCrudService.PrintCurrentValue("Current id: ", article.Id);
@@ -151,28 +146,4 @@ public abstract class ArticleUpdater
     /// </summary>
     /// <param name="menuItems">The collection of options for the user</param>
     protected abstract void AddDerivedOptions(List<PropertyMenuItem> menuItems);
-
-    // todo: extract out of this class????
-    protected class PropertyMenuItem
-    {
-        public int Number { get; }
-        public string Text { get; }
-
-        public PropertyMenuItem(int number, string text)
-        {
-            Number = number;
-            Text = text;
-        }
-    }
-
-    private void PrintMenu(List<PropertyMenuItem> menuItems)
-    {
-        foreach (var menuItem in menuItems)
-        {
-            Console.Write("  ");
-            Console.Write(menuItem.Number);
-            Console.Write(" ");
-            Console.WriteLine(menuItem.Text);
-        }
-    }
 }

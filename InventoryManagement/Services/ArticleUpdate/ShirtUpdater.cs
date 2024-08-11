@@ -14,8 +14,9 @@ public abstract class ShirtUpdater : ArticleUpdater
     /// Creates a new updater
     /// </summary>
     /// <param name="shirtCrudService">The CRUD service process shirts</param>
-    protected ShirtUpdater(ShirtCrudService shirtCrudService)
-        : base(shirtCrudService)
+    /// <param name="menuService">A service used to print the property update menu</param>
+    protected ShirtUpdater(ShirtCrudService shirtCrudService, IMenuService menuService)
+        : base(shirtCrudService, menuService)
     {
         ShirtCrudService = shirtCrudService;
     }

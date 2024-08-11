@@ -56,7 +56,7 @@ public class ShellUserInputProcessor : IUserInputProcessor
         ShowArticleDetails(article);
         Console.WriteLine();
 
-        var updateFacade = new ArticleUpdateFacade(new ShellInputProvider());
+        var updateFacade = new ArticleUpdateFacade(new ShellInputProvider(), new ShellMenuService());
         updateFacade.UpdateArticle(article);
         _articleRepository.UpdateArticle(article);
     }

@@ -14,8 +14,9 @@ public abstract class ShoeUpdater : ArticleUpdater
     /// Creates a new updater
     /// </summary>
     /// <param name="shoeCrudService">The CRUD service process shoes</param>
-    protected ShoeUpdater(ShoeCrudService shoeCrudService) 
-        : base(shoeCrudService)
+    /// <param name="menuService">A service used to print the property update menu</param>
+    protected ShoeUpdater(ShoeCrudService shoeCrudService, IMenuService menuService) 
+        : base(shoeCrudService, menuService)
     {
         ShoeCrudService = shoeCrudService;
     }

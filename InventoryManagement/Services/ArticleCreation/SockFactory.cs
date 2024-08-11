@@ -23,7 +23,6 @@ public class SockFactory : ArticleFactory
     public override Article Create(int id)
     {
         var socks = new Socks(id);
-        Console.WriteLine("Please enter the following attributes: ");
 
         ReadArticleProperties(socks);
         

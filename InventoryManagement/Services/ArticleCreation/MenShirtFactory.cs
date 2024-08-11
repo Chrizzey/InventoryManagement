@@ -23,7 +23,6 @@ public class MenShirtFactory : ShirtFactory
     public override Article Create(int id)
     {
         var shirt = new MenShirt(id);
-        Console.WriteLine("Please enter the following attributes: ");
 
         ReadArticleProperties(shirt);
         ReadShirtProperties(shirt);

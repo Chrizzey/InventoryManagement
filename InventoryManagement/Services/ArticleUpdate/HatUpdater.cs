@@ -14,8 +14,9 @@ public class HatUpdater : ArticleUpdater
     /// Creates a new updater
     /// </summary>
     /// <param name="hatCrudService">The CRUD service process hats</param>
-    public HatUpdater(HatCrudService hatCrudService) 
-        : base(hatCrudService)
+    /// <param name="menuService">A service used to print the property update menu</param>
+    public HatUpdater(HatCrudService hatCrudService, IMenuService menuService) 
+        : base(hatCrudService, menuService)
     {
         _hatCrudService = hatCrudService;
     }

@@ -14,8 +14,9 @@ public class WomenShoeUpdater : ShoeUpdater
     /// Creates a new updater
     /// </summary>
     /// <param name="womenShoeCrudService">The CRUD service process shoes for women</param>
-    public WomenShoeUpdater(WomenShoeCrudService womenShoeCrudService)
-        : base(womenShoeCrudService)
+    /// <param name="menuService">A service used to print the property update menu</param>
+    public WomenShoeUpdater(WomenShoeCrudService womenShoeCrudService, IMenuService menuService)
+        : base(womenShoeCrudService, menuService)
     {
         _womenShoeCrudService = womenShoeCrudService;
     }

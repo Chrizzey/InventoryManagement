@@ -14,8 +14,9 @@ public class SockUpdater : ArticleUpdater
     /// Creates a new updater
     /// </summary>
     /// <param name="sockCrudService">The CRUD service process socks</param>
-    public SockUpdater(SockCrudService sockCrudService)
-        : base(sockCrudService)
+    /// <param name="menuService">A service used to print the property update menu</param>
+    public SockUpdater(SockCrudService sockCrudService, IMenuService menuService)
+        : base(sockCrudService, menuService)
     {
         _sockCrudService = sockCrudService;
     }
