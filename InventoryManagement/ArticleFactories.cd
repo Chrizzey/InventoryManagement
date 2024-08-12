@@ -1,14 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
   <Class Name="InventoryManagement.Services.ArticleCreation.ArticleFactory">
-    <Position X="10.25" Y="2" Width="2" />
+    <Position X="10" Y="3.5" Width="2" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAEBAAAAAGAAAAAA=</HashCode>
       <FileName>Services\ArticleCreation\ArticleFactory.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="InventoryManagement.Services.ArticleCreation.HatFactory">
-    <Position X="9.25" Y="5" Width="1.5" />
+    <Position X="6.75" Y="2.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAQAAAAAAEAAAAAAAAAAAAA=</HashCode>
       <FileName>Services\ArticleCreation\HatFactory.cs</FileName>
@@ -36,14 +36,14 @@
     </TypeIdentifier>
   </Class>
   <Class Name="InventoryManagement.Services.ArticleCreation.ShoeFactory">
-    <Position X="11.25" Y="5" Width="2" />
+    <Position X="13.5" Y="5" Width="2" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAA=</HashCode>
       <FileName>Services\ArticleCreation\ShoeFactory.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="InventoryManagement.Services.ArticleCreation.SockFactory">
-    <Position X="14" Y="5" Width="1.5" />
+    <Position X="14" Y="2.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAIAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAA=</HashCode>
       <FileName>Services\ArticleCreation\SockFactory.cs</FileName>

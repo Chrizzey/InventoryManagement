@@ -1,63 +1,63 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
   <Class Name="InventoryManagement.Services.ArticleUpdate.ArticleUpdater">
-    <Position X="11" Y="3.75" Width="1.75" />
+    <Position X="12.75" Y="5.5" Width="1.75" />
     <TypeIdentifier>
       <HashCode>AAARAgAAAAAgAAAAAAAAACAAAABAEIBAAIABCAAAAQQ=</HashCode>
       <FileName>Services\ArticleUpdate\ArticleUpdater.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="InventoryManagement.Services.ArticleUpdate.HatUpdater">
-    <Position X="11.25" Y="8.5" Width="1.75" />
+    <Position X="9.25" Y="5.5" Width="1.75" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAACQAAABAgAAAAAAAAAQAAAA=</HashCode>
       <FileName>Services\ArticleUpdate\HatUpdater.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="InventoryManagement.Services.ArticleUpdate.MenShirtUpdater">
-    <Position X="11.25" Y="11.5" Width="1.75" />
+    <Position X="11.75" Y="11.5" Width="1.75" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAACAAAABAgAQAAAAAAAAAAAA=</HashCode>
       <FileName>Services\ArticleUpdate\MenShirtUpdater.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="InventoryManagement.Services.ArticleUpdate.MenShoeUpdater">
-    <Position X="13.5" Y="11.5" Width="2" />
+    <Position X="14" Y="11.5" Width="2" />
     <TypeIdentifier>
       <HashCode>AAAQAAAAAAAAAAAAAAAAACAAAABAAAAAAAAAAAAAEAA=</HashCode>
       <FileName>Services\ArticleUpdate\MenShoeUpdater.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="InventoryManagement.Services.ArticleUpdate.ShirtUpdater">
-    <Position X="8.75" Y="8.5" Width="2" />
+    <Position X="9.25" Y="8.5" Width="2" />
     <TypeIdentifier>
       <HashCode>EABAAAAAAAAAAAAAAAAAACAAAABAAAAAAAAAAAAQAAA=</HashCode>
       <FileName>Services\ArticleUpdate\ShirtUpdater.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="InventoryManagement.Services.ArticleUpdate.ShoeUpdater">
-    <Position X="13.5" Y="8.5" Width="2" />
+    <Position X="16.25" Y="8.25" Width="2" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAEAACAAAABAAAAAAAAAAACAAAA=</HashCode>
       <FileName>Services\ArticleUpdate\ShoeUpdater.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="InventoryManagement.Services.ArticleUpdate.SockUpdater">
-    <Position X="15.75" Y="8.5" Width="2" />
+    <Position X="16.25" Y="5.5" Width="2" />
     <TypeIdentifier>
       <HashCode>AABAAAAAAIAAAAAAAAAAACAAAABAgAAAAAAAAAAAAAA=</HashCode>
       <FileName>Services\ArticleUpdate\SockUpdater.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="InventoryManagement.Services.ArticleUpdate.WomenShirtUpdater">
-    <Position X="8.75" Y="11.5" Width="2" />
+    <Position X="9.25" Y="11.5" Width="2" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAACAAAABAgABAAAAEAAAAAAA=</HashCode>
       <FileName>Services\ArticleUpdate\WomenShirtUpdater.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="InventoryManagement.Services.ArticleUpdate.WomenShoeUpdater">
-    <Position X="15.75" Y="11.5" Width="2" />
+    <Position X="16.25" Y="11.5" Width="2" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAIAAAAACAAAABAAACAAAAAAAAAAAA=</HashCode>
       <FileName>Services\ArticleUpdate\WomenShoeUpdater.cs</FileName>
