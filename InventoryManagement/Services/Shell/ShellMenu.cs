@@ -2,15 +2,25 @@
 
 namespace InventoryManagement.Services.Shell;
 
+/// <summary>
+/// Represents the main menu for user interaction
+/// </summary>
 public class ShellMenu
 {
     private readonly IUserInputProcessor _userInputProcessor;
 
+    /// <summary>
+    /// Creates a new instance
+    /// </summary>
+    /// <param name="userInputProcessor">An input processor to handle use cases</param>
     public ShellMenu(IUserInputProcessor userInputProcessor)
     {
         _userInputProcessor = userInputProcessor;
     }
 
+    /// <summary>
+    /// Shows the main menu
+    /// </summary>
     public void Show()
     {
         var choice = PrintMainMenu();

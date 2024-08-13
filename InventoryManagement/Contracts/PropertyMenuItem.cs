@@ -1,4 +1,4 @@
-﻿namespace InventoryManagement.Services.ArticleUpdate;
+﻿namespace InventoryManagement.Contracts;
 
 /// <summary>
 /// Represents a menu entry for the property update

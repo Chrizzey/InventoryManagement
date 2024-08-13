@@ -1,5 +1,5 @@
-﻿using InventoryManagement.Models.Articles;
-using InventoryManagement.Services.ArticleCreation;
+﻿using InventoryManagement.Contracts;
+using InventoryManagement.Models.Articles;
 using InventoryManagement.Services.CrudServices;
 using InventoryManagement.Services.Shell;
 

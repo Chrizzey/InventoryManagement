@@ -1,9 +1,13 @@
-﻿using InventoryManagement.Services.ArticleUpdate;
+﻿using InventoryManagement.Contracts;
 
 namespace InventoryManagement.Services.Shell;
 
+/// <summary>
+/// A menu service used for property change interactions
+/// </summary>
 public class ShellMenuService : IMenuService
 {
+    /// <inheritdoc />
     public PropertyMenuItem PrintMenuAndReadUserChoice(List<PropertyMenuItem> menuItems)
     {
         PrintMenu(menuItems);

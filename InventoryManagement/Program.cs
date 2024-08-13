@@ -1,11 +1,16 @@
 ﻿using InventoryManagement.Services;
-using InventoryManagement.Services.Shell;
 
 namespace InventoryManagement;
 
+/// <summary>
+/// Hosts the main entry point into the application
+/// </summary>
 internal class Program
 {
-    static void Main(string[] args)
+    /// <summary>
+    /// The main entry point of the application
+    /// </summary>
+    static void Main()
     {
         Console.WriteLine("Inventory Management");
 

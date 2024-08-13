@@ -1,62 +1,74 @@
 ﻿using InventoryManagement.Contracts;
 using InventoryManagement.Models.Articles;
 
-namespace InventoryManagement.Services
+namespace InventoryManagement.Services;
+
+/// <summary>
+/// A service creating articles for testing purposes
+/// </summary>
+public class TestDataFactory
 {
-    public class TestDataFactory
+    private readonly IArticleRepository _articleRepository;
+
+    /// <summary>
+    /// Creates a new instance
+    /// </summary>
+    /// <param name="articleRepository">A repository to store the test data</param>
+    public TestDataFactory(IArticleRepository articleRepository)
     {
-        private readonly IArticleRepository _articleRepository;
+        _articleRepository = articleRepository;
+    }
 
-        public TestDataFactory(IArticleRepository articleRepository)
+    /// <summary>
+    /// Adds a number of socks to the test data
+    /// </summary>
+    public void AddSocks(int numberOfSocksToAdd)
+    {
+        var lastId = GetLastId();
+
+        for (var i = lastId; i < numberOfSocksToAdd; i++)
         {
-            _articleRepository = articleRepository;
-        }
-
-        public void AddSocks(int numberOfSocksToAdd)
-        {
-            var lastId = GetLastId();
-
-            for (var i = lastId; i < numberOfSocksToAdd; i++)
+            var socks = new Socks(i)
             {
-                var socks = new Socks(i)
-                {
-                    Brand = "No-name",
-                    Color = "Black",
-                    ItemsInStock = 100,
-                    NumberOfPairs = 4,
-                    Price = 19.99m,
-                    Size = "39-42",
-                    Name = "Black no-name socks"
-                };
-                _articleRepository.AddArticle(socks);
-            }
+                Brand = "No-name",
+                Color = "Black",
+                ItemsInStock = 100,
+                NumberOfPairs = 4,
+                Price = 19.99m,
+                Size = "39-42",
+                Name = "Black no-name socks"
+            };
+            _articleRepository.AddArticle(socks);
         }
+    }
 
-        private int GetLastId()
+    private int GetLastId()
+    {
+        for (var i = 0; i < int.MaxValue; i++)
         {
-            for (var i = 0; i < int.MaxValue; i++)
-            {
-                if(!_articleRepository.DoesIdExist(i))
-                    return i;
-            }
-
-            throw new NotImplementedException();
+            if(!_articleRepository.DoesIdExist(i))
+                return i;
         }
 
-        public void AddMenShirts()
+        throw new NotImplementedException();
+    }
+
+    /// <summary>
+    /// Adds a single shirt for men to the test data
+    /// </summary>
+    public void AddMenShirts()
+    {
+        _articleRepository.AddArticle(new MenShirt(100)
         {
-            _articleRepository.AddArticle(new MenShirt(100)
-            {
-                Name = "Formal Shirt",
-                Brand = "Armani",
-                Color = "Pale Blue",
-                Price = 59.99m,
-                Pattern = "Solid Color",
-                HasLongSleeves = true,
-                ShirtSize = StandardSize.Medium,
-                Description = "A stylish shirt by Armani in solid pale blue",
-                ItemsInStock = 152
-            });
-        }
+            Name = "Formal Shirt",
+            Brand = "Armani",
+            Color = "Pale Blue",
+            Price = 59.99m,
+            Pattern = "Solid Color",
+            HasLongSleeves = true,
+            ShirtSize = StandardSize.Medium,
+            Description = "A stylish shirt by Armani in solid pale blue",
+            ItemsInStock = 152
+        });
     }
 }

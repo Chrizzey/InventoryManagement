@@ -1,5 +1,8 @@
 ﻿namespace InventoryManagement.Contracts;
 
+/// <summary>
+/// A collection of distinct standard sizes
+/// </summary>
 public enum StandardSize
 {
     /// <summary>

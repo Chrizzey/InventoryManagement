@@ -3,15 +3,26 @@ using InventoryManagement.Models.Articles;
 
 namespace InventoryManagement.Services.Shell;
 
+/// <summary>
+/// A service responsible from outputting article information to the shell
+/// </summary>
 public class ArticlePrinter
 {
     private readonly IArticleRepository _articleRepository;
 
+    /// <summary>
+    /// Creates a new instance
+    /// </summary>
+    /// <param name="articleRepository">A repository containing the articles</param>
     public ArticlePrinter(IArticleRepository articleRepository)
     {
         _articleRepository = articleRepository;
     }
 
+    /// <summary>
+    /// Outputs a given <paramref name="article"/> to the shell
+    /// </summary>
+    /// <param name="article">The article to be printed</param>
     public void Print(Article article)
     {
         Console.WriteLine();
@@ -108,6 +119,9 @@ public class ArticlePrinter
         Console.WriteLine($"\t Number of Pairs: {socks.NumberOfPairs}");
     }
 
+    /// <summary>
+    /// Prints an overview of all present articles
+    /// </summary>
     public void PrintOverview()
     {
         foreach (var article in _articleRepository.GetAllArticles())

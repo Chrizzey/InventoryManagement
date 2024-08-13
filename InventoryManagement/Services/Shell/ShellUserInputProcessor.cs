@@ -6,12 +6,19 @@ using InventoryManagement.Services.ArticleUpdate;
 
 namespace InventoryManagement.Services.Shell;
 
+/// <summary>
+/// The shell input processor handling the user cases
+/// </summary>
 public class ShellUserInputProcessor : IUserInputProcessor
 {
     private readonly IArticleRepository _articleRepository;
     private readonly ShellInputProvider _inputProvider;
     private readonly ArticlePrinter _articlePrinter;
 
+    /// <summary>
+    /// Creates a new instance
+    /// </summary>
+    /// <param name="articleRepository">A repository storing the articles</param>
     public ShellUserInputProcessor(IArticleRepository articleRepository)
     {
         _articleRepository = articleRepository;
@@ -19,16 +26,19 @@ public class ShellUserInputProcessor : IUserInputProcessor
         _inputProvider = new ShellInputProvider();
     }
 
+    /// <inheritdoc />
     public void ListAllArticles()
     {
         _articlePrinter.PrintOverview();
     }
 
+    /// <inheritdoc />
     public void ShowArticleDetails(Article article)
     {
         _articlePrinter.Print(article);
     }
 
+    /// <inheritdoc />
     public void CreateNewArticle()
     {
         int choice;
@@ -51,7 +61,8 @@ public class ShellUserInputProcessor : IUserInputProcessor
         _articleRepository.AddArticle(article);
         Console.WriteLine("The article with ID {0} has been created", article.Id);
     }
-    
+
+    /// <inheritdoc />
     public void UpdateArticle(Article article)
     {
         ShowArticleDetails(article);
@@ -63,12 +74,14 @@ public class ShellUserInputProcessor : IUserInputProcessor
         Console.WriteLine("The article with ID {0} has been updated", article.Id);
     }
 
+    /// <inheritdoc />
     public void DeleteArticle(Article article)
     {
         _articleRepository.DeleteArticle(article);
         Console.WriteLine("The article with ID {0} has been deleted", article.Id);
     }
 
+    /// <inheritdoc />
     public Article SelectArticle()
     {
         for (var i = 0; i < 5; i++)

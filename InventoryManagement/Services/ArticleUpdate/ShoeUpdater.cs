@@ -1,4 +1,5 @@
-﻿using InventoryManagement.Models.Articles;
+﻿using InventoryManagement.Contracts;
+using InventoryManagement.Models.Articles;
 using InventoryManagement.Services.CrudServices;
 
 namespace InventoryManagement.Services.ArticleUpdate;
